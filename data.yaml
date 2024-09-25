@@ -1,0 +1,6 @@
+train: C:/Users/HAI/PycharmProjects/pythonYoloProject/Fruits-detection/train/images
+val: C:/Users/HAI/PycharmProjects/pythonYoloProject/Fruits-detection/valid/images
+test: C:/Users/HAI/PycharmProjects/pythonYoloProject/Fruits-detection/test/images
+
+nc: 6
+names: ['Apple','Banana','Grape', 'Orange','Pineapple','Watermelon']

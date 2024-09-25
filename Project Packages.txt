@@ -1,0 +1,12 @@
+pip install torch
+pip install pyodbc
+pip install torch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0
+pip install mysql-connector-python  
+pip install flask-sqlalchemy
+pip install flask ultralytics opencv-python-headless pillow 
+pip install ultralytics opencv-python-headless pillow tkinter 
+pip install ultralytics opencv-python-headless pillow
+pip install --upgrade torch ultralytics
+pip install ultralytics
+
+

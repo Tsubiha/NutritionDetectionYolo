@@ -54,9 +54,10 @@ import pyodbc
 def get_db_connection():
     conn = pyodbc.connect(
         "DRIVER={ODBC Driver 17 for SQL Server};"
-        "SERVER=localhost;"
+        "SERVER=0.tcp.in.ngrok.io,14862;"
         "DATABASE=Fruit_Detection;"
-        "Trusted_Connection=yes;"
+        "UID=MS;"
+        "PWD=MS;"
     )
     return conn
 

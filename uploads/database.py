@@ -54,7 +54,7 @@ import pyodbc
 def get_db_connection():
     conn = pyodbc.connect(
         "DRIVER={ODBC Driver 17 for SQL Server};"
-        "SERVER=localhost;"
+        "SERVER=192.168.1.8,1433;"
         "DATABASE=Fruit_Detection;"
         "UID=MS;"
         "PWD=MS;"

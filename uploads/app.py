@@ -17,12 +17,13 @@ def allowed_file(filename):
 @app.route('/', methods=['GET', 'POST'])
 def index():
     visitor_ip = request.headers.get('X-Forwarded-For', request.remote_addr)
-
+    ip_list = visitor_ip.split(',')  # Split into a list by commas
+    origin_ip = ip_list[0].strip()  # Take the first IP and strip any whitespace
     # Store the IP address in the database
-    store_visitor_ip(visitor_ip)
+    store_visitor_ip(origin_ip)
 
     # Get the count of unique visitors
-    visitor_count = get_unique_visitor_count()
+    origin_ip = get_unique_visitor_count()
     if request.method == 'POST':
         if 'file' not in request.files:
             return "No file part"
@@ -55,7 +56,7 @@ def index():
 
             return render_template('result.html', nutrition_info=nutrition_info, image_path=filename)
 
-    return render_template('index.html',visitor_count=visitor_count)
+    return render_template('index.html',visitor_count=origin_ip)
 
 
 if __name__ == '__main__':

@@ -22,8 +22,11 @@ RUN apt-get update && apt-get install -y \
     libgl1 \
     libglib2.0-0
 
+RUN mkdir -p /app/static/uploads
+
 # Set the working directory in the container
 WORKDIR /app
+
 
 # Copy the current directory contents into the container at /app
 COPY . /app

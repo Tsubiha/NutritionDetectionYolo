@@ -58,6 +58,8 @@ def get_db_connection():
         "DATABASE=Fruit_Detection;"
         "UID=MS;"
         "PWD=MS;"
+        "Encrypt=yes;"
+        "TrustServerCertificate=no;"
     )
     return conn
 

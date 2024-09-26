@@ -1,17 +1,24 @@
 #!/bin/bash
 
-# Update system and install necessary packages
+# Update the package list
 apt-get update
 
-# Install unixODBC (required by pyodbc)
-apt-get install -y unixodbc-dev curl apt-transport-https
+# Install curl and other dependencies
+apt-get install -y curl apt-transport-https gnupg2
 
-# Import Microsoft GPG keys and add repository
+# Import the public repository GPG keys
 curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
-curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | tee /etc/apt/sources.list.d/msprod.list
 
-# Install ODBC Driver 17 for SQL Server
+# Register the Microsoft SQL Server Ubuntu repository
+curl https://packages.microsoft.com/config/ubuntu/22.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
+
+# Update the package list again to include the new repository
 apt-get update
-ACCEPT_EULA=Y apt-get install -y msodbcsql17
 
- pip install -r requirements.txt
+# Install the ODBC Driver 17 for SQL Server and unixODBC development libraries
+ACCEPT_EULA=Y apt-get install -y msodbcsql17 unixodbc-dev
+
+# Clean up to save space
+apt-get clean -y
+rm -rf /var/lib/apt/lists/*
+pip install -r requirements.txt
